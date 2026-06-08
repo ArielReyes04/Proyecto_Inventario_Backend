@@ -38,9 +38,13 @@ public class UserServicesImpl implements UserService {
     @Autowired
     private UserRoleRepository userRoleRepository;
 
+    @Autowired
+    private org.springframework.security.crypto.password.PasswordEncoder passwordEncoder;
+
     @Override
     public List<UserResponse> getAllUsers() {
         return usersRepository.findAll().stream()
+                .filter(u -> u.getPerson() != null && (u.getPerson().getDeleted() == null || !u.getPerson().getDeleted()))
                 .map(this::mapToUserResponse)
                 .collect(Collectors.toList());
     }
@@ -84,15 +88,47 @@ public class UserServicesImpl implements UserService {
     }
 
     @Override
-    public UserResponse updateUser(UserRequest userRequest) {
-        // Implementación básica: se puede completar según requerimientos.
-        // Por ahora se lanza una excepción porque no se definió la lógica exacta.
-        throw new UnsupportedOperationException("updateUser not yet implemented");
+    public UserResponse updateUser(UUID id, UserRequest userRequest) {
+        User user = usersRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no existe"));
+        
+        Person person = user.getPerson();
+        // Prevent duplicate DNI or Email if changed
+        if (!person.getDni().equals(userRequest.getDni()) && personRepository.existsByDni(userRequest.getDni()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "El DNI ya está en uso");
+        if (!person.getEmail().equals(userRequest.getEmail()) && personRepository.existsByEmail(userRequest.getEmail()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "El Email ya está en uso");
+
+        person.setDni(userRequest.getDni());
+        person.setFirstName(userRequest.getFirstName());
+        person.setMiddleName(userRequest.getMiddleName());
+        person.setLastName(userRequest.getLastName());
+        person.setEmail(userRequest.getEmail());
+        person.setPhoneNumber(userRequest.getPhoneNumber());
+        person.setNationality(userRequest.getNationality());
+        person.setAddress(userRequest.getAddress());
+        
+        personRepository.save(person);
+        return mapToUserResponse(user);
     }
 
     @Override
     public void deleteUser(UUID userID) {
+        User user = usersRepository.findById(userID)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no existe"));
+        Person person = user.getPerson();
+        person.setDeleted(true);
+        personRepository.save(person);
+    }
 
+    @Override
+    public UserResponse toggleActive(UUID userID) {
+        User user = usersRepository.findById(userID)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no existe"));
+        Person person = user.getPerson();
+        person.setActive(person.getActive() == null ? false : !person.getActive());
+        personRepository.save(person);
+        return mapToUserResponse(user);
     }
 
     @Override
@@ -130,6 +166,47 @@ public class UserServicesImpl implements UserService {
     @Override
     public UserResponse removeRole(UUID userId, UUID roleId) {
         return null;
+    }
+
+    @Override
+    public UserResponse getCurrentUserProfile(String username) {
+        User user = usersRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+        return mapToUserResponse(user);
+    }
+
+    @Override
+    public UserResponse updateCurrentUserProfile(String username, ec.edu.espe.master.dto.request.ProfileUpdateRequest request) {
+        User user = usersRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+        
+        Person person = user.getPerson();
+        if (!person.getEmail().equals(request.getEmail()) && personRepository.existsByEmail(request.getEmail()))
+            throw new ResponseStatusException(HttpStatus.CONFLICT, "El Email ya está en uso");
+
+        person.setFirstName(request.getFirstName());
+        person.setMiddleName(request.getMiddleName());
+        person.setLastName(request.getLastName());
+        person.setEmail(request.getEmail());
+        person.setPhoneNumber(request.getPhoneNumber());
+        person.setNationality(request.getNationality());
+        person.setAddress(request.getAddress());
+        
+        personRepository.save(person);
+        return mapToUserResponse(user);
+    }
+
+    @Override
+    public void changePassword(String username, ec.edu.espe.master.dto.request.PasswordChangeRequest request) {
+        User user = usersRepository.findByUsername(username)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Usuario no encontrado"));
+        
+        if (!passwordEncoder.matches(request.getCurrentPassword(), user.getPasswordHash())) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "La contraseña actual no es correcta");
+        }
+        
+        user.setPasswordHash(passwordEncoder.encode(request.getNewPassword()));
+        usersRepository.save(user);
     }
 
     // Función personalizada para generar username según ejemplos:

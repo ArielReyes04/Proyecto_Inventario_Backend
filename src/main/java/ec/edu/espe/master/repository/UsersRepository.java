@@ -10,6 +10,7 @@ import java.util.UUID;
 
 public interface UsersRepository extends JpaRepository<User, UUID> {
     boolean existsByUsername(String username);
+    java.util.Optional<User> findByUsername(String username);
 
     //anthony nestor villarreal macias
     //anvillarrealm

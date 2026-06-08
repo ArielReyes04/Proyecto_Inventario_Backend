@@ -41,4 +41,20 @@ public class UserController {
     public ResponseEntity<UserResponse> assigneRole(@PathVariable UUID userId, @PathVariable UUID roleId){
         return ResponseEntity.ok(userService.assigneRole(userId,roleId));
     }
+
+    @GetMapping("/me")
+    public ResponseEntity<UserResponse> getCurrentUser(java.security.Principal principal){
+        return ResponseEntity.ok(userService.getCurrentUserProfile(principal.getName()));
+    }
+
+    @PutMapping("/me")
+    public ResponseEntity<UserResponse> updateCurrentUser(@Valid @RequestBody ec.edu.espe.master.dto.request.ProfileUpdateRequest request, java.security.Principal principal){
+        return ResponseEntity.ok(userService.updateCurrentUserProfile(principal.getName(), request));
+    }
+
+    @PatchMapping("/me/password")
+    public ResponseEntity<String> changePassword(@Valid @RequestBody ec.edu.espe.master.dto.request.PasswordChangeRequest request, java.security.Principal principal){
+        userService.changePassword(principal.getName(), request);
+        return ResponseEntity.ok("Contraseña actualizada exitosamente");
+    }
 }
