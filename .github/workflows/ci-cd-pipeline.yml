@@ -70,6 +70,7 @@ jobs:
       - name: Compilar y Probar Backend
         run: |
           chmod +x mvnw
+          cp src/main/resources/application.example.yaml src/main/resources/application.yaml
           ./mvnw clean test
 
   # ==========================================
