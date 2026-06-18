@@ -1,0 +1,834 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------------< ec.edu.espe:master >-------------------------
+[INFO] Building  0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ master ---
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ master ---
+[INFO] Copying 2 resources from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.14.1:compile (default-compile) @ master ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 30 source files with javac [debug parameters release 21] to target/classes
+[INFO] /home/runner/work/Proyecto_Inventario_Backend/Proyecto_Inventario_Backend/src/main/java/ec/edu/espe/master/security/JwtAuthFilter.java: /home/runner/work/Proyecto_Inventario_Backend/Proyecto_Inventario_Backend/src/main/java/ec/edu/espe/master/security/JwtAuthFilter.java uses or overrides a deprecated API.
+[INFO] /home/runner/work/Proyecto_Inventario_Backend/Proyecto_Inventario_Backend/src/main/java/ec/edu/espe/master/security/JwtAuthFilter.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- resources:3.3.1:testResources (default-testResources) @ master ---
+[INFO] skip non existing resourceDirectory /home/runner/work/Proyecto_Inventario_Backend/Proyecto_Inventario_Backend/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.14.1:testCompile (default-testCompile) @ master ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 1 source file with javac [debug parameters release 21] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.5:test (default-test) @ master ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running ec.edu.espe.master.MasterApplicationTests
+00:24:41.170 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ec.edu.espe.master.MasterApplicationTests]: MasterApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:24:41.268 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ec.edu.espe.master.MasterApplication for test class ec.edu.espe.master.MasterApplicationTests
+00:24:41.351 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [ec.edu.espe.master.MasterApplicationTests]: MasterApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+00:24:41.352 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration ec.edu.espe.master.MasterApplication for test class ec.edu.espe.master.MasterApplicationTests
+00:24:41.417 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.0.6)
+
+2026-06-18T00:24:41.682Z  INFO 2922 --- [           main] e.e.espe.master.MasterApplicationTests   : Starting MasterApplicationTests using Java 21.0.11 with PID 2922 (started by runner in /home/runner/work/Proyecto_Inventario_Backend/Proyecto_Inventario_Backend)
+2026-06-18T00:24:41.683Z  INFO 2922 --- [           main] e.e.espe.master.MasterApplicationTests   : No active profile set, falling back to 1 default profile: "default"
+2026-06-18T00:24:42.362Z  INFO 2922 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-06-18T00:24:42.424Z  INFO 2922 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 4 JPA repository interfaces.
+2026-06-18T00:24:42.918Z  INFO 2922 --- [           main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-06-18T00:24:42.960Z  INFO 2922 --- [           main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.12.Final
+2026-06-18T00:24:43.348Z  INFO 2922 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-06-18T00:24:43.387Z  INFO 2922 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-06-18T00:24:43.573Z  INFO 2922 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@20163008
+2026-06-18T00:24:43.574Z  INFO 2922 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-06-18T00:24:43.602Z  WARN 2922 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-06-18T00:24:43.623Z  INFO 2922 --- [           main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://localhost:5432/bd-usuarios]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 15.18
+	Default catalog/schema: bd-usuarios/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-06-18T00:24:44.469Z  INFO 2922 --- [           main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-06-18T00:24:44.503Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    create table persons (
+        id uuid not null,
+        active boolean,
+        address TEXT not null,
+        created_at timestamp(6),
+        deleted boolean,
+        dni varchar(30) not null,
+        email varchar(50) not null,
+        first_name varchar(30) not null,
+        last_name varchar(30) not null,
+        middle_name varchar(30) not null,
+        nationality varchar(30) not null,
+        phone_number varchar(15) not null,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+Hibernate: 
+    create table persons (
+        id uuid not null,
+        active boolean,
+        address TEXT not null,
+        created_at timestamp(6),
+        deleted boolean,
+        dni varchar(30) not null,
+        email varchar(50) not null,
+        first_name varchar(30) not null,
+        last_name varchar(30) not null,
+        middle_name varchar(30) not null,
+        nationality varchar(30) not null,
+        phone_number varchar(15) not null,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+2026-06-18T00:24:44.510Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    create table roles (
+        id uuid not null,
+        active boolean,
+        created_at timestamp(6),
+        description TEXT,
+        name varchar(50) not null,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+Hibernate: 
+    create table roles (
+        id uuid not null,
+        active boolean,
+        created_at timestamp(6),
+        description TEXT,
+        name varchar(50) not null,
+        updated_at timestamp(6),
+        primary key (id)
+    )
+2026-06-18T00:24:44.513Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    create table user_role (
+        active boolean,
+        assigned_at timestamp(6),
+        updated_at timestamp(6),
+        id_role uuid not null,
+        id_user uuid not null,
+        primary key (id_role, id_user)
+    )
+Hibernate: 
+    create table user_role (
+        active boolean,
+        assigned_at timestamp(6),
+        updated_at timestamp(6),
+        id_role uuid not null,
+        id_user uuid not null,
+        primary key (id_role, id_user)
+    )
+2026-06-18T00:24:44.515Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    create table users (
+        id_person uuid not null,
+        created_at timestamp(6),
+        last_login timestamp(6),
+        password_hash varchar(60) not null,
+        updated_at timestamp(6),
+        username varchar(15) not null,
+        primary key (id_person)
+    )
+Hibernate: 
+    create table users (
+        id_person uuid not null,
+        created_at timestamp(6),
+        last_login timestamp(6),
+        password_hash varchar(60) not null,
+        updated_at timestamp(6),
+        username varchar(15) not null,
+        primary key (id_person)
+    )
+2026-06-18T00:24:44.517Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       drop constraint if exists UKt0tma5e5ec4leolu2gaqpc9v7
+Hibernate: 
+    alter table if exists persons 
+       drop constraint if exists UKt0tma5e5ec4leolu2gaqpc9v7
+2026-06-18T00:24:44.519Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-06-18T00:24:44.519Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : constraint "ukt0tma5e5ec4leolu2gaqpc9v7" of relation "persons" does not exist, skipping
+2026-06-18T00:24:44.520Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       add constraint UKt0tma5e5ec4leolu2gaqpc9v7 unique (dni)
+Hibernate: 
+    alter table if exists persons 
+       add constraint UKt0tma5e5ec4leolu2gaqpc9v7 unique (dni)
+2026-06-18T00:24:44.521Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       drop constraint if exists UK1x5aosta48fbss4d5b3kuu0rd
+Hibernate: 
+    alter table if exists persons 
+       drop constraint if exists UK1x5aosta48fbss4d5b3kuu0rd
+2026-06-18T00:24:44.521Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-06-18T00:24:44.521Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : constraint "uk1x5aosta48fbss4d5b3kuu0rd" of relation "persons" does not exist, skipping
+2026-06-18T00:24:44.522Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       add constraint UK1x5aosta48fbss4d5b3kuu0rd unique (email)
+Hibernate: 
+    alter table if exists persons 
+       add constraint UK1x5aosta48fbss4d5b3kuu0rd unique (email)
+2026-06-18T00:24:44.523Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       drop constraint if exists UK9hnd589g7dx4km8ejqo65vgdl
+Hibernate: 
+    alter table if exists persons 
+       drop constraint if exists UK9hnd589g7dx4km8ejqo65vgdl
+2026-06-18T00:24:44.524Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-06-18T00:24:44.524Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : constraint "uk9hnd589g7dx4km8ejqo65vgdl" of relation "persons" does not exist, skipping
+2026-06-18T00:24:44.524Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists persons 
+       add constraint UK9hnd589g7dx4km8ejqo65vgdl unique (phone_number)
+Hibernate: 
+    alter table if exists persons 
+       add constraint UK9hnd589g7dx4km8ejqo65vgdl unique (phone_number)
+2026-06-18T00:24:44.526Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists roles 
+       drop constraint if exists UKofx66keruapi6vyqpv6f2or37
+Hibernate: 
+    alter table if exists roles 
+       drop constraint if exists UKofx66keruapi6vyqpv6f2or37
+2026-06-18T00:24:44.526Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-06-18T00:24:44.527Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : constraint "ukofx66keruapi6vyqpv6f2or37" of relation "roles" does not exist, skipping
+2026-06-18T00:24:44.527Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists roles 
+       add constraint UKofx66keruapi6vyqpv6f2or37 unique (name)
+Hibernate: 
+    alter table if exists roles 
+       add constraint UKofx66keruapi6vyqpv6f2or37 unique (name)
+2026-06-18T00:24:44.528Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists users 
+       drop constraint if exists UKr43af9ap4edm43mmtq01oddj6
+Hibernate: 
+    alter table if exists users 
+       drop constraint if exists UKr43af9ap4edm43mmtq01oddj6
+2026-06-18T00:24:44.529Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : HHH000247: ErrorCode: 0, SQLState: 00000
+2026-06-18T00:24:44.529Z  WARN 2922 --- [           main] org.hibernate.orm.jdbc.warn              : constraint "ukr43af9ap4edm43mmtq01oddj6" of relation "users" does not exist, skipping
+2026-06-18T00:24:44.529Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists users 
+       add constraint UKr43af9ap4edm43mmtq01oddj6 unique (username)
+Hibernate: 
+    alter table if exists users 
+       add constraint UKr43af9ap4edm43mmtq01oddj6 unique (username)
+2026-06-18T00:24:44.531Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists user_role 
+       add constraint FK2yqlxhjhgilevh7qvt2ve6udh 
+       foreign key (id_role) 
+       references roles
+Hibernate: 
+    alter table if exists user_role 
+       add constraint FK2yqlxhjhgilevh7qvt2ve6udh 
+       foreign key (id_role) 
+       references roles
+2026-06-18T00:24:44.532Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists user_role 
+       add constraint FKr53t650tbjk5yipcm228wf1nc 
+       foreign key (id_user) 
+       references users
+Hibernate: 
+    alter table if exists user_role 
+       add constraint FKr53t650tbjk5yipcm228wf1nc 
+       foreign key (id_user) 
+       references users
+2026-06-18T00:24:44.533Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    alter table if exists users 
+       add constraint FKt1ck97adua0pbtboqs1uy4s56 
+       foreign key (id_person) 
+       references persons
+Hibernate: 
+    alter table if exists users 
+       add constraint FKt1ck97adua0pbtboqs1uy4s56 
+       foreign key (id_person) 
+       references persons
+2026-06-18T00:24:44.535Z  INFO 2922 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-06-18T00:24:44.631Z  INFO 2922 --- [           main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-06-18T00:24:44.911Z  INFO 2922 --- [           main] eAuthenticationProviderManagerConfigurer : Global AuthenticationManager configured with AuthenticationProvider bean with name authenticationProvider
+2026-06-18T00:24:44.911Z  WARN 2922 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with an AuthenticationProvider bean. UserDetailsService beans will not be used by Spring Security for automatically configuring username/password login. Consider removing the AuthenticationProvider bean. Alternatively, consider using the UserDetailsService in a manually instantiated DaoAuthenticationProvider. If the current configuration is intentional, to turn off this warning, increase the logging level of 'org.springframework.security.config.annotation.authentication.configuration.InitializeUserDetailsBeanManagerConfigurer' to ERROR
+2026-06-18T00:24:45.016Z  WARN 2922 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-06-18T00:24:45.664Z  INFO 2922 --- [           main] e.e.espe.master.MasterApplicationTests   : Started MasterApplicationTests in 4.258 seconds (process running for 5.258)
+2026-06-18T00:24:45.674Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Inicializando datos...
+2026-06-18T00:24:46.013Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.037Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Rol 'Administrador' creado.
+2026-06-18T00:24:46.046Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.050Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.051Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Rol 'Encargado de Bodega' creado.
+2026-06-18T00:24:46.052Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.053Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.054Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Rol 'Vendedor' creado.
+2026-06-18T00:24:46.054Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.055Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        r1_0.id 
+    from
+        roles r1_0 
+    where
+        r1_0.name=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.056Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Rol 'Asistente de Compras' creado.
+2026-06-18T00:24:46.065Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.068Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.075Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        roles
+        (active, created_at, description, name, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.076Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2026-06-18T00:24:46.174Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Usuario 'admin' con rol 'Administrador' creado.
+2026-06-18T00:24:46.176Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.178Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.179Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+2026-06-18T00:24:46.180Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.183Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.185Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2026-06-18T00:24:46.258Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Usuario 'bodega' con rol 'Encargado de Bodega' creado.
+2026-06-18T00:24:46.260Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.261Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.261Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+2026-06-18T00:24:46.262Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.264Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.266Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2026-06-18T00:24:46.338Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Usuario 'vendedor' con rol 'Vendedor' creado.
+2026-06-18T00:24:46.340Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.341Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.342Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+2026-06-18T00:24:46.343Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.345Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+Hibernate: 
+    select
+        u1_0.id_person 
+    from
+        users u1_0 
+    where
+        u1_0.username=? 
+    fetch
+        first ? rows only
+2026-06-18T00:24:46.346Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+Hibernate: 
+    select
+        r1_0.id,
+        r1_0.active,
+        r1_0.created_at,
+        r1_0.description,
+        r1_0.name,
+        r1_0.updated_at 
+    from
+        roles r1_0 
+    where
+        r1_0.name=?
+2026-06-18T00:24:46.418Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Usuario 'asistente' con rol 'Asistente de Compras' creado.
+2026-06-18T00:24:46.418Z  INFO 2922 --- [           main] e.e.espe.master.config.DataInitializer   : Inicialización de datos completada.
+2026-06-18T00:24:46.420Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        persons
+        (active, address, created_at, deleted, dni, email, first_name, last_name, middle_name, nationality, phone_number, updated_at, id) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.421Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        users
+        (created_at, last_login, password_hash, updated_at, username, id_person) 
+    values
+        (?, ?, ?, ?, ?, ?)
+2026-06-18T00:24:46.422Z DEBUG 2922 --- [           main] org.hibernate.SQL                        : 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+Hibernate: 
+    insert 
+    into
+        user_role
+        (active, assigned_at, updated_at, id_role, id_user) 
+    values
+        (?, ?, ?, ?, ?)
+Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+WARNING: A Java agent has been loaded dynamically (/home/runner/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.751 s -- in ec.edu.espe.master.MasterApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  10.442 s
+[INFO] Finished at: 2026-06-18T00:24:46Z
+[INFO] ------------------------------------------------------------------------
