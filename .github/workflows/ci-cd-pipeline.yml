@@ -73,7 +73,7 @@ jobs:
           mkdir -p evidencias
           chmod +x mvnw
           cp src/main/resources/application.example.yaml src/main/resources/application.yaml
-          ./mvnw clean test > evidencias/backend_tests.log 2>&1 || true
+          ./mvnw clean test -Dspring.datasource.url=jdbc:postgresql://localhost:5432/bd-usuarios -Dspring.datasource.username=postgres -Dspring.datasource.password=12345 > evidencias/backend_tests.log 2>&1 || true
           
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@7006c4492b2e0ee0f816d36501671557c97f5995 # v8.1.0
