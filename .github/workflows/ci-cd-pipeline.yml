@@ -47,6 +47,7 @@ jobs:
       bugs: ${{ steps.extract-summary.outputs.bugs }}
       vulns: ${{ steps.extract-summary.outputs.vulns }}
       smells: ${{ steps.extract-summary.outputs.smells }}
+      test_details: ${{ steps.extract-summary.outputs.test_details }}
     services:
       postgres:
         image: postgres:15
@@ -114,6 +115,10 @@ jobs:
           fi
           SUCCESS=$((RUN - FAIL - ERR - SKIP))
           
+          # Extraer detalles específicos de cada clase de prueba
+          TEST_DETAILS=$(grep "Time elapsed:.*-- in" clean.log | sed -e 's/.*Tests run: \([0-9]*\), Failures: \([0-9]*\), Errors: \([0-9]*\).*-- in .*\.\([^.]*\)$/  👉 \4: \1 run, \2 fail/g')
+          if [ -z "$TEST_DETAILS" ]; then TEST_DETAILS="  Sin detalles específicos"; fi
+          
           # Extraer métricas SonarCloud usando API
           METRICS_JSON=$(curl -s -u ${{ secrets.SONAR_TOKEN }}: "https://sonarcloud.io/api/measures/component?component=ferreteria-kanos_backend&metricKeys=bugs,vulnerabilities,code_smells,coverage")
           BUGS=$(echo $METRICS_JSON | jq -r '.component.measures[] | select(.metric=="bugs") | .value' 2>/dev/null || echo "N/A")
@@ -126,6 +131,11 @@ jobs:
           echo "bugs=$BUGS" >> $GITHUB_OUTPUT
           echo "vulns=$VULNS" >> $GITHUB_OUTPUT
           echo "smells=$SMELLS" >> $GITHUB_OUTPUT
+          
+          EOF=$(dd if=/dev/urandom bs=15 count=1 status=none | base64)
+          echo "test_details<<$EOF" >> $GITHUB_OUTPUT
+          echo "$TEST_DETAILS" >> $GITHUB_OUTPUT
+          echo "$EOF" >> $GITHUB_OUTPUT
 
       - name: Guardar evidencias
         uses: actions/upload-artifact@v4
@@ -180,10 +190,9 @@ jobs:
             - Pruebas y Sonar: ${{ needs.run-tests.result }}
             - A Main: ${{ needs.promote-to-main.result }}
             
-            🧪 *Tabla de Pruebas:*
-            | Total | Éxito | Fallos |
-            |-------|-------|--------|
-            | ${{ needs.run-tests.outputs.run }} | ${{ needs.run-tests.outputs.success }} | ${{ needs.run-tests.outputs.fail }} |
+            🧪 *Detalles de Pruebas:*
+            Total: ${{ needs.run-tests.outputs.run }} | Éxitos: ${{ needs.run-tests.outputs.success }} | Fallos: ${{ needs.run-tests.outputs.fail }}
+            ${{ needs.run-tests.outputs.test_details }}
             
             🛡️ *Calidad SonarCloud:*
             - Bugs: ${{ needs.run-tests.outputs.bugs }}
