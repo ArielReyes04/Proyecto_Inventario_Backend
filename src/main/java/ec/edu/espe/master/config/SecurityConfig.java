@@ -111,8 +111,8 @@ public class SecurityConfig {
     public org.springframework.web.cors.CorsConfigurationSource corsConfigurationSource() {
         // Crea configuración CORS
         org.springframework.web.cors.CorsConfiguration configuration = new org.springframework.web.cors.CorsConfiguration();
-        // Define orígenes permitidos
-        configuration.setAllowedOrigins(java.util.List.of("http://localhost:4200"));
+        // Define orígenes permitidos (local y producción Vercel)
+        configuration.setAllowedOrigins(java.util.List.of("http://localhost:4200", "https://proyecto-inventario-frontend-phi.vercel.app"));
         // Define métodos HTTP permitidos
         configuration.setAllowedMethods(java.util.List.of("GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"));
         // Define headers permitidos
