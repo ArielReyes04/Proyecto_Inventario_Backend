@@ -40,6 +40,8 @@ jobs:
     name: Ejecutar Pruebas (Spring Boot)
     needs: promote-to-test
     runs-on: ubuntu-latest
+    outputs:
+      test_summary: ${{ steps.extract-summary.outputs.test_summary }}
     services:
       postgres:
         image: postgres:15
@@ -80,6 +82,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
+      - name: Extraer Resumen de Pruebas
+        id: extract-summary
+        run: |
+          TEST_SUMMARY=$(grep "Tests run:" evidencias/backend_tests.log | tail -n 1 | xargs) || TEST_SUMMARY="No se encontró resumen de pruebas"
+          echo "test_summary=$TEST_SUMMARY" >> $GITHUB_OUTPUT
+
       - name: Guardar evidencias
         uses: actions/upload-artifact@v4
         if: always()
@@ -135,4 +143,10 @@ jobs:
             - Pruebas: ${{ needs.run-tests.result }}
             - A Main: ${{ needs.promote-to-main.result }}
             
-            [Ver Detalles](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            📊 *Resumen de Pruebas:*
+            ${{ needs.run-tests.outputs.test_summary }}
+            
+            🔍 *SonarCloud Dashboard:*
+            [Ver Análisis](https://sonarcloud.io/dashboard?id=ferreteria-kanos_backend)
+            
+            🔗 [Ver Detalles de GitHub Actions](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
