@@ -78,7 +78,7 @@ public class AuthServiceImplTest {
         request.setDni("1234567890");
 
         Role role = new Role();
-        role.setId(1);
+        role.setId(java.util.UUID.randomUUID());
         role.setName("USER");
 
         when(usersRepository.existsByUsername("newuser")).thenReturn(false);
@@ -86,7 +86,7 @@ public class AuthServiceImplTest {
         when(passwordEncoder.encode("pass123")).thenReturn("hashed-pass");
         
         Person person = new Person();
-        person.setId(1);
+        person.setId(java.util.UUID.randomUUID());
         when(personRepository.save(any(Person.class))).thenReturn(person);
 
         authService.register(request);
