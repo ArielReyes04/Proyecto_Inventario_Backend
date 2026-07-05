@@ -28,6 +28,7 @@
 	</scm>
 	<properties>
 		<java.version>21</java.version>
+		<sonar.cpd.exclusions>**/dto/**/*</sonar.cpd.exclusions>
 	</properties>
 	<dependencies>
         <dependency>

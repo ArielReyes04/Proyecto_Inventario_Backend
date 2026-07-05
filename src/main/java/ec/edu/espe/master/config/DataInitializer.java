@@ -18,6 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
@@ -35,6 +36,18 @@ public class DataInitializer implements CommandLineRunner {
     private final ProviderRepository providerRepository;
     private final CustomerRepository customerRepository;
     private final ProductRepository productRepository;
+
+    @Value("${app.defaults.admin-password:admin1234}")
+    private String adminPassword;
+
+    @Value("${app.defaults.bodega-password:bodega1234}")
+    private String bodegaPassword;
+
+    @Value("${app.defaults.vendedor-password:vendedor1234}")
+    private String vendedorPassword;
+
+    @Value("${app.defaults.asistente-password:asistente1234}")
+    private String asistentePassword;
 
     @Override
     @Transactional
@@ -62,10 +75,10 @@ public class DataInitializer implements CommandLineRunner {
         }
 
         // 2. Crear usuarios por defecto si no existen
-        createUserIfNotExists("admin", "admin1234", "Administrador", "0000000001", "Admin", "I", "System");
-        createUserIfNotExists("bodega", "bodega1234", "Encargado de Bodega", "0000000002", "Encargado", "B", "Bodega");
-        createUserIfNotExists("vendedor", "vendedor1234", "Vendedor", "0000000003", "Vendedor", "V", "Ventas");
-        createUserIfNotExists("asistente", "asistente1234", "Asistente de Compras", "0000000004", "Asistente", "A", "Compras");
+        createUserIfNotExists("admin", adminPassword, "Administrador", "0000000001", "Admin", "I", "System");
+        createUserIfNotExists("bodega", bodegaPassword, "Encargado de Bodega", "0000000002", "Encargado", "B", "Bodega");
+        createUserIfNotExists("vendedor", vendedorPassword, "Vendedor", "0000000003", "Vendedor", "V", "Ventas");
+        createUserIfNotExists("asistente", asistentePassword, "Asistente de Compras", "0000000004", "Asistente", "A", "Compras");
 
         // 3. Crear Categorías
         Category catHerramientas = createCategoryIfNotExists("Herramientas Manuales", "Alicates, martillos, desarmadores, etc.");
