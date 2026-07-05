@@ -20,3 +20,10 @@ logging:
   level:
     org.hibernate.SQL: debug
     org.hibernate.type.descriptor.sql: trace
+
+app:
+  defaults:
+    admin-password: ${DEFAULT_ADMIN_PASSWORD:admin1234}
+    bodega-password: ${DEFAULT_BODEGA_PASSWORD:bodega1234}
+    vendedor-password: ${DEFAULT_VENDEDOR_PASSWORD:vendedor1234}
+    asistente-password: ${DEFAULT_ASISTENTE_PASSWORD:asistente1234}
