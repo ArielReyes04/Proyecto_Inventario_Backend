@@ -79,8 +79,8 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 // Configura autorización de requests
                 .authorizeHttpRequests(auth -> auth
-                        // Permite acceso público a login
-                        .requestMatchers("/auth/login").permitAll()
+                        // Permite acceso público a login y a la ruta de errores interna de Spring Boot
+                        .requestMatchers("/auth/login", "/error").permitAll()
                         // Solo administradores pueden crear usuarios
                         .requestMatchers(HttpMethod.POST, "/api/users").hasAuthority("Administrador")
                         // Todos los otros requests requieren autenticación
