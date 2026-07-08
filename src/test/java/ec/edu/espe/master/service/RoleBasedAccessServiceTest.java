@@ -61,7 +61,7 @@ public class RoleBasedAccessServiceTest {
     // ==========================================
 
     @Test
-    @WithMockUser(roles = "VENDEDOR")
+    @WithMockUser(authorities = "Vendedor")
     public void registrarEgreso_rolVendedor_success() {
         // Arrange
         InventoryMovementRequest request = new InventoryMovementRequest();
@@ -81,7 +81,7 @@ public class RoleBasedAccessServiceTest {
     }
 
     @Test
-    @WithMockUser(roles = "VENDEDOR")
+    @WithMockUser(authorities = "Vendedor")
     public void modificarPrecioProducto_rolVendedor_throwsAccessDeniedException() {
         // Arrange
         UUID productId = UUID.randomUUID();
@@ -105,7 +105,7 @@ public class RoleBasedAccessServiceTest {
     // ==========================================
 
     @Test
-    @WithMockUser(roles = "ENCARGADO_BODEGA")
+    @WithMockUser(authorities = "Encargado de Bodega")
     public void modificarPresupuesto_rolBodega_throwsAccessDeniedException() {
         // Nota: Como no existe una entidad de presupuesto actualmente, usamos 
         // la creación/actualización de categorías como ejemplo de gestión restringida.
@@ -127,7 +127,7 @@ public class RoleBasedAccessServiceTest {
     // ==========================================
 
     @Test
-    @WithMockUser(roles = "ASISTENTE_COMPRAS")
+    @WithMockUser(authorities = "Asistente de Compras")
     public void registrarEgresoManual_rolAsistenteCompras_throwsAccessDeniedException() {
         // Arrange
         InventoryMovementRequest request = new InventoryMovementRequest();
@@ -147,7 +147,7 @@ public class RoleBasedAccessServiceTest {
     // ==========================================
 
     @Test
-    @WithMockUser(roles = "ADMINISTRADOR")
+    @WithMockUser(authorities = "Administrador")
     public void modificarPrecioProducto_rolAdministrador_doesNotThrowAccessDenied() {
         // Arrange
         UUID productId = UUID.randomUUID();
