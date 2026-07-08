@@ -5,10 +5,13 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Data;
 
+import ec.edu.espe.master.validator.EcuadorianId;
+
 @Data
 public class CustomerRequest {
     @NotBlank(message = "El RUC o documento es obligatorio")
-    @Size(max = 20, message = "El documento no puede tener mas de 20 caracteres")
+    @Size(max = 13, message = "El documento no puede tener mas de 13 caracteres")
+    @EcuadorianId
     private String documentNumber;
 
     @NotBlank(message = "El nombre o razón social es obligatorio")
@@ -22,7 +25,7 @@ public class CustomerRequest {
 
     @NotBlank(message = "El teléfono es obligatorio")
     @Pattern(regexp = "^[0-9]+$", message = "El teléfono solo puede contener números")
-    @Size(max = 20, message = "El teléfono no puede tener mas de 20 caracteres")
+    @Size(min = 9, max = 20, message = "El teléfono debe tener entre 9 y 20 caracteres")
     private String phoneNumber;
 
     @NotBlank(message = "El campo dirección es obligatorio")
