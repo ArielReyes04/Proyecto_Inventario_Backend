@@ -42,7 +42,7 @@ public class ProductServiceImplTest {
 
     @Test
     void testGetAllProducts() {
-        when(productRepository.findAll()).thenReturn(Collections.emptyList());
+        when(productRepository.findByActiveTrueAndDeletedFalse()).thenReturn(Collections.emptyList());
         List<ProductResponse> res = productService.getAllProducts();
         assertNotNull(res);
     }
