@@ -27,7 +27,7 @@ public class ProfileUpdateRequest {
 
     @NotBlank
     @Pattern(regexp = "^[0-9]+$", message = "El teléfono solo puede contener números")
-    @Size(max = 10, message = "El teléfono no puede tener mas de 10 caracteres")
+    @Size(min = 9, max = 15, message = "El teléfono debe tener entre 9 y 15 caracteres")
     private String phoneNumber;
 
     @NotBlank(message = "El campo dirección es obligatorio")
